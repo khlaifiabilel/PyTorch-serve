@@ -1,16 +1,18 @@
-name: Benchmark torchserve nightly
+name: Benchmark inf2 nightly
 
 on:
   # run every day at 2:15am
-  schedule:
-    - cron:  '15 02 * * *'
+  # schedule:
+  #   - cron:  '15 02 * * *'
+  # test workflow
+  push:
 
 jobs:
   nightly:
     strategy:
       fail-fast: false
       matrix:
-        hardware: [cpu, gpu, inf1, inf2]
+        hardware: [inf2]
     runs-on:
       - self-hosted
       - ${{ matrix.hardware }}
